@@ -1,0 +1,9 @@
+.rounded {
+  margin-left: 570px;
+}
+
+button{
+  border-radius: 100px;
+  padding:8px;
+  width:130px;
+}

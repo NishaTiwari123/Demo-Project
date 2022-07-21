@@ -1,0 +1,98 @@
+<nav class="navbar bg-light">
+  <div class="navbar-nav">
+    <li class="nav-item">
+      <a
+        routerLinkActive="active"
+        routerLink="/home"
+        class="btn btn-none btn-lg active"
+        aria-pressed="true"
+        ><img
+          src="https://www.clipartmax.com/png/middle/270-2703019_pictures-gallery-of-company-logos-design-free-logo-design-3d-png.png"
+          width="50px"
+      /></a>
+      <a
+        *ngIf="goBackLinks.text"
+        routerLinkActive="active"
+        routerLink="/{{ goBackLinks.url}}"
+        class="btn btn-none btn-lg active"
+        aria-pressed="true"
+        ><i class="fas fa-angle-double-left"></i>{{goBackLinks.text}}</a
+      >
+    </li>
+  </div>
+  <div class="navbar-nav">
+    <li class="nav-item">
+      <ng-container *ngIf="headerNav">
+        <a
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLink="/index"
+          class="btn btn-none btn-lg active"
+          aria-pressed="true"
+          >Home</a
+        >
+        <a
+          routerLinkActive="active"
+          routerLink="/product"
+          class="btn btn-none btn-lg active"
+          aria-pressed="true"
+          >Products</a
+        >
+        <a
+          routerLinkActive="active"
+          routerLink="/gallery"
+          class="btn btn-none btn-lg active"
+          aria-pressed="true"
+          >Gallery</a
+        >
+        <a
+          routerLinkActive="active"
+          routerLink="/about"
+          class="btn btn-none btn-lg active"
+          aria-pressed="true"
+          >About Us</a
+        >
+        <a
+          routerLinkActive="active"
+          routerLink="/contact"
+          class="btn btn-none btn-lg active"
+          aria-pressed="true"
+          >Contact Us</a
+        >
+      </ng-container>
+    </li>
+  </div>
+  <div class="navbar-nav">
+    <li class="nav-item px-4">
+      <ng-container *ngIf="loginNav">
+        <a
+          role="button"
+          class="btn btn-info"
+          routerLinkActive="active"
+          routerLink="/login"
+          aria-pressed="true"
+          *ngIf="!loginBtn"
+          >Sign Up</a
+        >
+        <div *ngIf="loginBtn">
+          <span class="btn btn-none"
+            >Welcome <strong class="text-primary">{{loginBtn}} </strong></span
+          >
+          <span>|</span>
+          <a
+            class="btn btn-none"
+            (click)="onLogout()"
+            ><i class="fas fa-unlock"></i>Logout</a
+          >
+        </div>
+      </ng-container>
+    </li>
+  </div>
+
+  <ng-container *ngIf="contactNav">
+    <p>
+      abc@gmail.com<br />
+      1234567890
+    </p>
+  </ng-container>
+</nav>

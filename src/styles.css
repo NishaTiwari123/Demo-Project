@@ -1,0 +1,4 @@
+/* Add application styles & imports to this file! */
+body{
+  @import '~bootstrap/dist/css/bootstrap.min.css'
+}

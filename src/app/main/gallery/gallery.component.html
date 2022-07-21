@@ -1,0 +1,14 @@
+<body>
+  <section>
+    <h1>Gallery</h1>
+    <div *ngFor="let item of galleryImages">
+      <!-- <a
+      routerLinkActive="active"
+      routerLink="galleryInformation"
+      class="btn btn-primary"
+    > -->
+      <figure><img src="{{ item.imgUrl }}" /></figure>
+      <!-- </a> -->
+    </div>
+  </section>
+</body>

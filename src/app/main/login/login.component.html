@@ -1,0 +1,14 @@
+<div class="bg-light">
+  <div class="border text-center">
+    <h2>Website Name</h2>
+    <br />
+    <h4>Please sign in</h4>
+    <br />
+    <div class="col-sm-3 p-4 rounded w-25">
+      <input type="text" placeholder="Username" class="form-control" #uname/><br />
+      <input type="password" placeholder="Password" class="form-control" #pass />
+      <br />
+      <button class=" btn-primary" (click)="onLogin(uname,pass)">Login</button>
+    </div>
+  </div>
+</div>
