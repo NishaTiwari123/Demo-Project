@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeaderService } from '../../../appServices/header.service';
 
 @Component({
@@ -7,7 +8,11 @@ import { HeaderService } from '../../../appServices/header.service';
   styleUrls: ['./gallery-information.component.css'],
 })
 export class GalleryInformationComponent implements OnInit, OnDestroy {
-  constructor(private _nav: HeaderService, private _link: HeaderService) {}
+  constructor(
+    private _nav: HeaderService,
+    private _link: HeaderService,
+    private _router: Router
+  ) {}
 
   ngOnInit() {
     this._nav.headerNavDetail.next(false);
@@ -15,6 +20,10 @@ export class GalleryInformationComponent implements OnInit, OnDestroy {
       text: 'Back to Gallery',
       url: '/gallery',
     });
+
+    if (sessionStorage.getItem('isLoggedIn') == null) {
+      this._router.navigate(['/login']);
+    }
   }
   ngOnDestroy() {
     this._nav.headerNavDetail.next(true);

@@ -8,8 +8,11 @@ import { HeaderService } from '../../../appServices/header.service';
   styleUrls: ['./product-information.component.css'],
 })
 export class ProductInformationComponent implements OnInit, OnDestroy {
-  constructor(private _nav: HeaderService, private _link: HeaderService,
-    private _router:Router) {}
+  constructor(
+    private _nav: HeaderService,
+    private _link: HeaderService,
+    private _router: Router
+  ) {}
 
   ngOnInit() {
     this._nav.headerNavDetail.next(false);
@@ -17,17 +20,13 @@ export class ProductInformationComponent implements OnInit, OnDestroy {
       text: 'Back to Product',
       url: '/product',
     });
-
-    if(sessionStorage.getItem('isLoggedIn')){
-        this._router.navigate['./product-information']
-      }
-      else{
-        this._router.navigate['./login']
-      }
+    if (sessionStorage.getItem('isLoggedIn') == null) {
+      this._router.navigate(['/login']);
+    }
   }
 
   ngOnDestroy() {
     this._nav.headerNavDetail.next(true);
-    this._link.goBackLinkDetail.next({text:'',url:''});
+    this._link.goBackLinkDetail.next({ text: '', url: '' });
   }
 }
